@@ -44,7 +44,7 @@ body {
   padding: 10px;
 }
 
-.add-book-overlay {
+.form-overlay {
   position: fixed;
   width: 100%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
@@ -58,7 +58,7 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.add-book-overlay.visible {
+.form-overlay.visible {
   display: flex;
 }
 
