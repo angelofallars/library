@@ -63,6 +63,10 @@ function createBookElement(book) {
 function displayBooks() {
   const booksCollection = document.querySelector(".books");
   // Clear books in the page
+  while (booksCollection.firstChild) {
+    booksCollection.removeChild(booksCollection.lastChild);
+  }
+
   // Iterate through myLibrary,
   myLibrary.forEach((book) => {
     // createBookElement, then push each to the books section in the page
@@ -70,6 +74,22 @@ function displayBooks() {
     booksCollection.append(bookElement);
   });
 }
+
+document.querySelector(".add-book-button").addEventListener("click", () => {
+  document.querySelector(".add-book-overlay").classList.add("visible");
+})
+
+document.querySelector(".add-book-overlay").addEventListener("click", (e) => {
+  e.target.classList.remove("visible");
+})
+
+document.querySelector(".add-form").addEventListener("submit", (e) => {
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  const newBook = new Book(data.title, data.author, data.pages, data.read);
+  addBookToLibrary(newBook);
+  displayBooks();
+  e.target.reset();
+})
 
 function debugInit() {
   myLibrary.push(
