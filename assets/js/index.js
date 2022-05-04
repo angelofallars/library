@@ -75,17 +75,20 @@ function displayBooks() {
   });
 }
 
+const formOverlay = document.querySelector(".form-overlay");
+const addForm = document.querySelector(".add-form");
+
 // Bring up the new book form on click
 document.querySelector(".add-book-button").addEventListener("click", () => {
-  document.querySelector(".form-overlay").classList.add("visible");
+  formOverlay.classList.add("visible");
 })
 
 // Exit the form when clicking on the dimmed background
-document.querySelector(".form-overlay").addEventListener("click", (e) => {
+formOverlay.addEventListener("click", (e) => {
   e.target.classList.remove("visible");
 })
 
-document.querySelector(".add-form").addEventListener("submit", (e) => {
+addForm.addEventListener("submit", (e) => {
   const data = Object.fromEntries(new FormData(e.target).entries());
   const newBook = new Book(data.title, data.author, data.pages, data.read);
   addBookToLibrary(newBook);
