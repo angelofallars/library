@@ -85,6 +85,8 @@ document.querySelector(".add-book-button").addEventListener("click", () => {
 
 // Exit the form when clicking on the dimmed background
 formOverlay.addEventListener("click", (e) => {
+  if (e.target !== e.currentTarget) return;
+
   e.target.classList.remove("visible");
   addForm.reset();
 })
