@@ -75,10 +75,12 @@ function displayBooks() {
   });
 }
 
+// Bring up the new book form on click
 document.querySelector(".add-book-button").addEventListener("click", () => {
   document.querySelector(".add-book-overlay").classList.add("visible");
 })
 
+// Exit the form when clicking on the dimmed background
 document.querySelector(".add-book-overlay").addEventListener("click", (e) => {
   e.target.classList.remove("visible");
 })
