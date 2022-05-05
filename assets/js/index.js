@@ -6,8 +6,6 @@ function Library() {
   this.books = [];
 }
 
-let myLibrary = new Library();
-
 Library.prototype.saveToStorage = function() {
   localStorage.setItem("books", JSON.stringify(this.books));
 }
@@ -26,6 +24,8 @@ Library.prototype.remove = function(index) {
   this.books.splice(index, 1);
   this.saveToStorage();
 }
+
+let myLibrary = new Library();
 
 function Book(title, author, pages, read) {
   this.title = title;
