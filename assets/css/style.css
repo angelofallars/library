@@ -7,6 +7,8 @@
   --bg-darkest-color: #D4D4D4;
   --fg-color: #000000;
   --red: #AF2721;
+  --green-bg: #90BA6A;
+  --green-bg-dark: #7CA15C;
 }
 
 body {
@@ -62,6 +64,26 @@ body {
   height: 230px;
   padding: 10px;
   text-align: center;
+}
+
+.book__read {
+  background-color: var(--bg-darker-color);
+  padding: 5px 0;
+  width: 95%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.book__read:hover {
+  background-color: var(--bg-darkest-color);
+}
+
+.book__read--read {
+  background-color: var(--green-bg);
+}
+
+.book__read--read:hover {
+  background-color: var(--green-bg-dark);
 }
 
 .book__remove {

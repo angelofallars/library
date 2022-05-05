@@ -64,7 +64,15 @@ function createBookElement(book, index) {
   titleSection.textContent = book.title;
   authorSection.textContent = book.author;
   pagesSection.textContent = `${book.pages} pages`;
-  readSection.textContent = book.read ? "Read" : "Not read yet";
+
+  if (book.read) {
+    readSection.textContent = "Read";
+    readSection.classList.add("book__read--read");
+  } else {
+    readSection.textContent = "Not Read Yet";
+    readSection.classList.add("book__read--unread");
+  }
+
   removeButton.textContent = "Remove";
 
   readSection.addEventListener("click", () => {
