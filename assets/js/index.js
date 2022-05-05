@@ -118,6 +118,8 @@ addForm.addEventListener("submit", (e) => {
   const newBook = new Book(data.title, data.author, data.pages, data.read);
   addBookToLibrary(newBook);
   displayBooks();
+
+  formOverlay.classList.remove("visible");
   e.target.reset();
 })
 
