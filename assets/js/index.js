@@ -59,6 +59,7 @@ function createBookElement(book, index) {
   pagesSection.classList.add("book__pages");
   readSection.classList.add("book__read");
   removeButton.classList.add("book__remove");
+  removeButton.classList.add("no-select");
 
   titleSection.textContent = book.title;
   authorSection.textContent = book.author;
