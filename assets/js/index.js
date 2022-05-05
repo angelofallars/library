@@ -67,14 +67,18 @@ function createBookElement(book, index) {
   const readSection = document.createElement("div");
   const removeButton = document.createElement("div");
 
+  const removeButtonSymbol = document.createElement("i");
+  removeButtonSymbol.setAttribute("class", "fa-solid fa-trash");
+  removeButton.append(removeButtonSymbol)
+
   // Set classes
   bookElement.classList.add("book");
+  removeButton.classList.add("book__remove");
+  removeButton.classList.add("no-select");
   titleSection.classList.add("book__title");
   authorSection.classList.add("book__author");
   pagesSection.classList.add("book__pages");
   readSection.classList.add("book__read");
-  removeButton.classList.add("book__remove");
-  removeButton.classList.add("no-select");
 
   titleSection.textContent = book.title;
   authorSection.textContent = book.author;
@@ -94,8 +98,6 @@ function createBookElement(book, index) {
     readSection.classList.add("book__read--unread");
   }
 
-  removeButton.textContent = "Remove";
-
   readSection.addEventListener("click", () => {
     myLibrary.toggleRead(index);
     displayBooks();
@@ -107,11 +109,11 @@ function createBookElement(book, index) {
   });
 
   // Populate with info about books
+  bookElement.append(removeButton);
   bookElement.append(titleSection);
   bookElement.append(authorSection);
   bookElement.append(pagesSection);
   bookElement.append(readSection);
-  bookElement.append(removeButton);
 
   return bookElement;
 }
