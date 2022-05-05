@@ -57,14 +57,6 @@ Book.prototype.toggleRead = function() {
   this.read = !this.read;
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
-}
-
-function removeBookFromLibrary(index) {
-  myLibrary.splice(index, 1);
-}
-
 function createBookElement(book, index) {
   // Create new div element
   const bookElement = document.createElement("div");
