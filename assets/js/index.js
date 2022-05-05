@@ -26,6 +26,10 @@ function Book(title, author, pages, read) {
   }
 }
 
+Book.prototype.toggleRead = function() {
+  this.read = !this.read;
+}
+
 function addBookToLibrary(book) {
   myLibrary.push(book);
 }
@@ -57,6 +61,11 @@ function createBookElement(book, index) {
   pagesSection.textContent = `${book.pages} pages`;
   readSection.textContent = book.read ? "Read" : "Not read yet";
   removeButton.textContent = "Remove";
+
+  readSection.addEventListener("click", () => {
+    book.toggleRead();
+    displayBooks();
+  });
 
   removeButton.addEventListener("click", () => {
     removeBookFromLibrary(index);
