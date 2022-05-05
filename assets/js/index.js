@@ -80,6 +80,7 @@ function createBookElement(book, index) {
   authorSection.classList.add("book__author");
   pagesSection.classList.add("book__pages");
   readSection.classList.add("book__read");
+  readSection.classList.add("no-select");
 
   titleSection.textContent = book.title;
   authorSection.textContent = book.author;
