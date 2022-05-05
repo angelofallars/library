@@ -198,4 +198,11 @@ function debugInit() {
 
   displayBooks();
 }
-debugInit();
+// debugInit();
+
+function main() {
+  myLibrary.books = JSON.parse(localStorage.getItem("books") || "[]");
+  displayBooks();
+}
+
+main();
