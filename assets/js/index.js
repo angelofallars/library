@@ -1,8 +1,31 @@
-let myLibrary = [];
-
 const formOverlay = document.querySelector(".form-overlay");
 const addForm = document.querySelector(".add-form");
 const addFormWarnings = document.querySelector(".add-form__warnings");
+
+function Library() {
+  this.books = [];
+}
+
+let myLibrary = new Library();
+
+Library.prototype.saveToStorage = function() {
+  localStorage.setItem("books", JSON.stringify(this.books));
+}
+
+Library.prototype.add = function(book) {
+  this.books.push(book);
+  this.saveToStorage();
+}
+
+Library.prototype.toggleRead = function(index) {
+  this.books[index].read = !this.books[index].read;
+  this.saveToStorage();
+}
+
+Library.prototype.remove = function(index) {
+  this.books.splice(index, 1);
+  this.saveToStorage();
+}
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -76,12 +99,12 @@ function createBookElement(book, index) {
   removeButton.textContent = "Remove";
 
   readSection.addEventListener("click", () => {
-    book.toggleRead();
+    myLibrary.toggleRead(index);
     displayBooks();
   });
 
   removeButton.addEventListener("click", () => {
-    removeBookFromLibrary(index);
+    myLibrary.remove(index);
     displayBooks();
   });
 
@@ -103,7 +126,7 @@ function displayBooks() {
   }
 
   // Iterate through myLibrary,
-  myLibrary.forEach((book, index) => {
+  myLibrary.books.forEach((book, index) => {
     // createBookElement, then push each to the books section in the page
     const bookElement = createBookElement(book, index);
     booksCollection.append(bookElement);
@@ -158,7 +181,7 @@ addForm.addEventListener("submit", (e) => {
   }
 
   const newBook = new Book(data.title, data.author, data.pages, data.read);
-  addBookToLibrary(newBook);
+  myLibrary.add(newBook);
   displayBooks();
 
   formOverlay.classList.remove("visible");
@@ -166,12 +189,12 @@ addForm.addEventListener("submit", (e) => {
 })
 
 function debugInit() {
-  myLibrary.push(
+  myLibrary.books = [
     new Book("Learning How to Learn", "Barbara Oakley", "360", true),
     new Book("The C Programming Language", "Dennis Ritchie & Brian Kernighnan", "399", true),
     new Book("The Algorithm Design Manual", "Steven S. Skiena", "902", false),
     new Book("Python Crash Course", "Eric Matthes", "544", true)
-  );
+  ];
 
   displayBooks();
 }
