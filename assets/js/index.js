@@ -1,6 +1,7 @@
 const formOverlay = document.querySelector(".form-overlay");
 const addForm = document.querySelector(".add-form");
 const addFormWarnings = document.querySelector(".add-form__warnings");
+const emptyLibraryMessage = document.querySelector(".empty-library-message");
 
 function Library() {
   this.books = [];
@@ -123,6 +124,13 @@ function displayBooks() {
   // Clear books in the page
   while (booksCollection.firstChild) {
     booksCollection.removeChild(booksCollection.lastChild);
+  }
+
+  // Display text if library is empty
+  if (myLibrary.books.length === 0) {
+    emptyLibraryMessage.classList.add("visible");
+  } else {
+    emptyLibraryMessage.classList.remove("visible");
   }
 
   // Iterate through myLibrary,

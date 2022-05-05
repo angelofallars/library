@@ -129,6 +129,16 @@ a {
   background-color: var(--bg-darkest-color);
 }
 
+.empty-library-message {
+  text-align: center;
+  margin: 20px 0;
+  display: none;
+}
+
+.empty-library-message.visible {
+  display: block;
+}
+
 .form-overlay {
   position: fixed;
   width: 100%; /* Full width (cover the whole page) */
