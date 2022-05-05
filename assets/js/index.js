@@ -30,7 +30,11 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-function createBookElement(book) {
+function removeBookFromLibrary(index) {
+  myLibrary.splice(index, 1);
+}
+
+function createBookElement(book, index) {
   // Create new div element
   const bookElement = document.createElement("div");
 
@@ -38,6 +42,7 @@ function createBookElement(book) {
   const authorSection = document.createElement("div");
   const pagesSection = document.createElement("div");
   const readSection = document.createElement("div");
+  const removeButton = document.createElement("div");
 
   // Set classes
   bookElement.classList.add("book");
@@ -45,17 +50,25 @@ function createBookElement(book) {
   authorSection.classList.add("book__author");
   pagesSection.classList.add("book__pages");
   readSection.classList.add("book__read");
+  removeButton.classList.add("book__remove");
 
   titleSection.textContent = book.title;
   authorSection.textContent = book.author;
   pagesSection.textContent = `${book.pages} pages`;
   readSection.textContent = book.read ? "Read" : "Not read yet";
+  removeButton.textContent = "Remove";
+
+  removeButton.addEventListener("click", () => {
+    removeBookFromLibrary(index);
+    displayBooks();
+  });
 
   // Populate with info about books
   bookElement.append(titleSection);
   bookElement.append(authorSection);
   bookElement.append(pagesSection);
   bookElement.append(readSection);
+  bookElement.append(removeButton);
 
   return bookElement;
 }
@@ -68,9 +81,9 @@ function displayBooks() {
   }
 
   // Iterate through myLibrary,
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     // createBookElement, then push each to the books section in the page
-    const bookElement = createBookElement(book);
+    const bookElement = createBookElement(book, index);
     booksCollection.append(bookElement);
   });
 }
