@@ -188,18 +188,6 @@ addForm.addEventListener("submit", (e) => {
   resetForm();
 })
 
-function debugInit() {
-  myLibrary.books = [
-    new Book("Learning How to Learn", "Barbara Oakley", "360", true),
-    new Book("The C Programming Language", "Dennis Ritchie & Brian Kernighnan", "399", true),
-    new Book("The Algorithm Design Manual", "Steven S. Skiena", "902", false),
-    new Book("Python Crash Course", "Eric Matthes", "544", true)
-  ];
-
-  displayBooks();
-}
-// debugInit();
-
 function main() {
   myLibrary.books = JSON.parse(localStorage.getItem("books") || "[]");
   displayBooks();
