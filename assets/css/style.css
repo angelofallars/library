@@ -5,6 +5,7 @@
   --bg-secondary-color: #F6F6F6;
   --bg-darker-color: #E5E5E5;
   --fg-color: #000000;
+  --red: #AF2721;
 }
 
 body {
@@ -95,4 +96,9 @@ body {
   gap: 7px;
   background-color: var(--bg-secondary-color);
   border-radius: 12px;
+}
+
+.add-form__warnings {
+  color: var(--red);
+  text-align: center;
 }

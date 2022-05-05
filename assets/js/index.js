@@ -1,5 +1,9 @@
 let myLibrary = [];
 
+const formOverlay = document.querySelector(".form-overlay");
+const addForm = document.querySelector(".add-form");
+const addFormWarnings = document.querySelector(".add-form__warnings");
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -97,8 +101,19 @@ function displayBooks() {
   });
 }
 
-const formOverlay = document.querySelector(".form-overlay");
-const addForm = document.querySelector(".add-form");
+function resetForm() {
+  addForm.reset();
+  addFormWarnings.textContent = "";
+}
+
+function isPositiveInteger(value) {
+  let parsedInt = parseInt(value, 10);
+  if(parsedInt > 0 && parsedInt.toString() === value) {
+    return true
+  }
+  return false;
+}
+
 
 // Bring up the new book form on click
 document.querySelector(".add-book-button").addEventListener("click", () => {
@@ -110,17 +125,34 @@ formOverlay.addEventListener("click", (e) => {
   if (e.target !== e.currentTarget) return;
 
   e.target.classList.remove("visible");
-  addForm.reset();
+  resetForm();
 })
 
 addForm.addEventListener("submit", (e) => {
   const data = Object.fromEntries(new FormData(e.target).entries());
+
+  // Validate data
+  for (field of ["title", "author", "pages"]) {
+    if (data[field] === "") {
+      addFormWarnings.textContent = "Please fill in this field.";
+      e.target.querySelector(`#${field}`).focus();
+      return;
+    }
+  } 
+
+  // Validate pages field is positive integer
+  if (!isPositiveInteger(data.pages)) {
+      addFormWarnings.textContent = "Pages field must be a positive number.";
+      e.target.querySelector("#pages").focus();
+      return;
+  }
+
   const newBook = new Book(data.title, data.author, data.pages, data.read);
   addBookToLibrary(newBook);
   displayBooks();
 
   formOverlay.classList.remove("visible");
-  e.target.reset();
+  resetForm();
 })
 
 function debugInit() {

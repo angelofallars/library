@@ -25,10 +25,11 @@
         <div class="form-overlay">
           <form class="add-form" action="javascript:void(0);" autocomplete="off">
             <div><strong>Add a new book</strong></div>
-            <input type="text" name="title" placeholder="Title">
-            <input type="text" name="author" placeholder="Author">
-            <input type="text" name="pages" placeholder="Pages">
+            <input type="text" name="title" id="title" placeholder="Title">
+            <input type="text" name="author" id="author" placeholder="Author">
+            <input type="text" name="pages" id="pages" placeholder="Pages">
             <div>Read the book? <input type="checkbox" id="read" name="read"></div>
+            <div class="add-form__warnings"></div>
             <input type="submit" value="Submit" onclick="">
           </form>
         </div>
