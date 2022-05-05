@@ -78,7 +78,13 @@ function createBookElement(book, index) {
 
   titleSection.textContent = book.title;
   authorSection.textContent = book.author;
-  pagesSection.textContent = `${book.pages} pages`;
+  pagesSection.textContent = `${book.pages}`;
+
+  if (book.pages > 1) {
+    pagesSection.textContent += " pages";
+  } else {
+    pagesSection.textContent += " page";
+  }
 
   if (book.read) {
     readSection.textContent = "Read";
