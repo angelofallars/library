@@ -125,6 +125,20 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.form-overlay--animate {
+  animation-name: form-overlay-fadein;
+  animation-duration: 0.12s;
+}
+
+@keyframes form-overlay-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1
+  }
+}
+
 .form-overlay.visible {
   display: flex;
 }
@@ -136,7 +150,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 300px;
-  gap: 7px;
+  gap: 10px;
   background-color: var(--bg-secondary-color);
   border-radius: 12px;
 }

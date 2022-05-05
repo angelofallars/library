@@ -127,6 +127,7 @@ function isPositiveInteger(value) {
 // Bring up the new book form on click
 document.querySelector(".add-book-button").addEventListener("click", () => {
   formOverlay.classList.add("visible");
+  formOverlay.classList.add("form-overlay--animate");
 })
 
 // Exit the form when clicking on the dimmed background
