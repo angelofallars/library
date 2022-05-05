@@ -138,7 +138,7 @@ addForm.addEventListener("submit", (e) => {
       e.target.querySelector(`#${field}`).focus();
       return;
     }
-  } 
+  }
 
   // Validate pages field is positive integer
   if (!isPositiveInteger(data.pages)) {
