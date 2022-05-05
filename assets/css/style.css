@@ -26,6 +26,7 @@ body {
 .container {
   margin: 0 auto;
   width: 95%;
+  max-width: 1100px;
 }
 
 .nav {
@@ -58,9 +59,6 @@ body {
   gap: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  flex-grow: 0;
-  flex-basis: 40%;
-  flex-shrink: 1;
   min-width: 300px;
   height: 220px;
   padding: 10px;
