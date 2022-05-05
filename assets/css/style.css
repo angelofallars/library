@@ -80,10 +80,11 @@ body {
   font-size: 25px;
   font-weight: 500;
   padding: 3px 8px;
+  cursor: pointer;
 }
 
 .add-book-button:hover {
-  cursor: pointer;
+  background-color: var(--bg-darkest-color);
 }
 
 .form-overlay {
