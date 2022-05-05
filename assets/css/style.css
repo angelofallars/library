@@ -81,6 +81,7 @@ a {
   width: 95%;
   border-radius: 10px;
   cursor: pointer;
+  margin-top: auto;
 }
 
 .book__read:hover {
@@ -119,10 +120,10 @@ a {
 .add-book-button {
   background-color: var(--bg-darker-color);
   border: 0;
-  border-radius: 5px;
+  border-radius: 7px;
   font-size: 25px;
   font-weight: 500;
-  padding: 3px 8px;
+  padding: 3px 12px;
   cursor: pointer;
 }
 
