@@ -82,6 +82,10 @@ a {
   text-align: center;
 }
 
+.book__title {
+  font-weight: 700;
+}
+
 .book__title, .book__author {
   overflow-wrap: break-word;
   max-width: 300px;
