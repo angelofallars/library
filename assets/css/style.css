@@ -4,6 +4,7 @@
   --bg-color: #ffffff;
   --bg-secondary-color: #F6F6F6;
   --bg-darker-color: #E5E5E5;
+  --bg-darkest-color: #D4D4D4;
   --fg-color: #000000;
   --red: #AF2721;
 }
@@ -53,6 +54,23 @@ body {
   min-width: 300px;
   height: 230px;
   padding: 10px;
+  text-align: center;
+}
+
+.book__remove {
+  background-color: var(--bg-darker-color);
+  padding: 5px 0;
+  width: 95%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.book__remove:hover {
+  background-color: var(--bg-darkest-color);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .add-book-button {
